@@ -1,5 +1,6 @@
+const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
-const { signToken, AuthenticationError } = require("../utils/auth");
+const { signToken } = require("../utils/auth");
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {

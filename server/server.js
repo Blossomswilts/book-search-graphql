@@ -4,7 +4,7 @@ const db = require("./config/connection");
 const express = require("express");
 const { expressMiddleware } = require("./utils/auth");
 const path = require("path");
-const { typeDefs, resolvers } = require("./schemas");
+const { typeDefs, resolvers } = require("../server/schemas");
 
 const app = express();
 
@@ -18,7 +18,7 @@ const server = new ApolloServer({
 });
 
 //Integrate Apollo Server with middleware
-const startServer = async () => {
+const startApolloServer = async () => {
     await server.start();
 
     app.use(express.urlencoded({ extended: false }));
