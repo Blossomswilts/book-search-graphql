@@ -6,10 +6,11 @@ import { useQuery, useMutation } from "@apollo/client";
 import { removeBookId } from "../utils/localStorage";
 
 const SavedBooks = () => {
-    // Load books and data from the database
+    // Load books from QUERY_ME savedBooks to display on page
     const { loading, data } = useQuery(QUERY_ME);
     const [removeBook] = useMutation(REMOVE_BOOK);
     const userData = data?.me || {};
+    console.log(userData);
 
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
     const handleDeleteBook = async (bookId) => {
@@ -41,7 +42,7 @@ const SavedBooks = () => {
     return (
         <>
             {/* eslint-disable-next-line react/no-unknown-property */}
-            <div fluid className="text-light bg-dark p-5">
+            <div className="text-light bg-dark p-5">
                 <Container>
                     <h1>Viewing saved books!</h1>
                 </Container>
@@ -60,7 +61,7 @@ const SavedBooks = () => {
                     {userData.savedBooks.map((book) => {
                         return (
                             // eslint-disable-next-line react/jsx-key
-                            <Col md="4">
+                            <Col md="4" key={book.bookId}>
                                 <Card key={book.bookId} border="dark">
                                     {book.image ? (
                                         <Card.Img

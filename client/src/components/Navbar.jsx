@@ -13,7 +13,7 @@ const AppNavbar = () => {
     return (
         <>
             <Navbar bg="dark" variant="dark" expand="lg">
-                <Container fluid>
+                <Container fluid={true}>
                     <Navbar.Brand as={Link} to="/">
                         Google Books Search
                     </Navbar.Brand>
