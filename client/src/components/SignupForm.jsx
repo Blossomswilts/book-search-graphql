@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useMutation } from "@apollo/client";
 import { Form, Button, Alert } from "react-bootstrap";
 
-import { createUser } from "../utils/API";
+// import { createUser } from "../utils/API";
+import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const SignupForm = () => {
@@ -11,6 +13,7 @@ const SignupForm = () => {
         email: "",
         password: "",
     });
+    const [addUser, { error }] = useMutation(ADD_USER);
     // set state for form validation
     const [validated] = useState(false);
     // set state for alert
@@ -30,17 +33,37 @@ const SignupForm = () => {
             event.preventDefault();
             event.stopPropagation();
         }
+        console.log( userFormData);
 
+        // try {
+        //     // const response = await createUser(userFormData);
+        //     const response = await ADD_USER(userFormData);
+
+        //     if (!response.ok) {
+        //         throw new Error("something went wrong!");
+        //     }
+
+        //     const { token, user } = await response.json();
+        //     console.log(user);
+        //     Auth.login(token);
+        // } catch (err) {
+        //     console.error(err);
+        //     setShowAlert(true);
+        // }
+
+        // setUserFormData({
+        //     username: "",
+        //     email: "",
+        //     password: "",
+        // });
+        // Set up mutation for creating a user
         try {
-            const response = await createUser(userFormData);
+            const {data} = await addUser({
+                variables: { ...userFormData },
+            });
+            console.log(data);
 
-            if (!response.ok) {
-                throw new Error("something went wrong!");
-            }
-
-            const { token, user } = await response.json();
-            console.log(user);
-            Auth.login(token);
+            Auth.login(data.addUser.token);
         } catch (err) {
             console.error(err);
             setShowAlert(true);
@@ -124,6 +147,11 @@ const SignupForm = () => {
                 >
                     Submit
                 </Button>
+                {error && (
+                    <div className="col-12 my-3 bg-danger text-white p-3">
+                        Something went wrong...
+                    </div>
+                )}
             </Form>
         </>
     );
