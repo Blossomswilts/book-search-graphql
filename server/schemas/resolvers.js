@@ -1,6 +1,5 @@
-const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
-const { signToken } = require("../utils/auth");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
@@ -15,6 +14,7 @@ const resolvers = {
             throw new AuthenticationError("Not logged in");
         },
     },
+// Set up mutations to handle creating a user, logging a user in, and saving a book.
     Mutation: {
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
