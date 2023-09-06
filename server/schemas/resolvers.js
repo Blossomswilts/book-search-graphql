@@ -14,7 +14,7 @@ const resolvers = {
             throw new AuthenticationError("Not logged in");
         },
     },
-// Set up mutations to handle creating a user, logging a user in, and saving a book.
+    // Set up mutations to handle creating a user, logging a user in, and saving a book.
     Mutation: {
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });

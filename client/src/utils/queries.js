@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 // Queries for front-end
 
 // Query for logged in user
@@ -48,4 +48,3 @@ export const QUERY_ME = gql`
 //         }
 //     }
 // `;
-
