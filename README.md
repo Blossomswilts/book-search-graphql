@@ -22,6 +22,7 @@ You will need to run `npm install` which will install the necessary package depe
 In order to run the program, after obtaining all of the dependencies you will need to run;
 * `npm run develop` : this will begin the program in your terminal, in which you can search for books and save them to your profile.
 * Application link to github repository: [GraphQL Book Search](https://github.com/Blossomswilts/book-search-graphql)
+* Application link to deployed site: [Book Search](https://graphql-book-search-10cca70d1e65.herokuapp.com/)
 
 ## Contribution
 If you would like to contribute to this project, and improve it in your own way(s), please do the following:
