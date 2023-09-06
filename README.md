@@ -35,7 +35,9 @@ If you would like to contribute to this project, and improve it in your own way(
 As a side note, when making changes, always merge or pull from the latest version to ensure you are working on the most up to date version of the application. 
 
 ## Screenshots
+![searchbooks](https://github.com/Blossomswilts/book-search-graphql/assets/117021869/cc455baa-73ac-4494-b9b6-2215fe8d04a3)
 
+![savedbooks](https://github.com/Blossomswilts/book-search-graphql/assets/117021869/070abf3d-16cb-4d0d-b579-9e1f30beadeb)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
